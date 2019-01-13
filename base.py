@@ -1,13 +1,10 @@
-class Operation():
-  def __init__(self, input_nodes=None):
-    self.input_nodes = input_nodes
-    self.output = None
-    
-    # Append operation to the list of operations of the default graph
-    _default_graph.operations.append(self)
+class Graph():
+  def __init__(self):
+    self.operations = []
+    self.placeholders = []
+    self.variables = []
+    self.constants = []
 
-  def forward(self):
-    pass
-
-  def backward(self):
-pass
+  def as_default(self):
+    global _default_graph
+    _default_graph = self
